@@ -1,0 +1,123 @@
+@import '../../../styles//variables.scss';
+
+.sidebar {
+  * {
+    box-sizing: border-box;
+    line-height: 24px;
+  }
+
+  z-index: 1000;
+  height: 100%;
+  width: $sidebar-width;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $primary-light-color;
+  border-right: $border;
+
+  &__logo {
+    margin: 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    margin-top: 45px;
+    color: $gray-color;
+
+    & > div {
+      width: 100%;
+    }
+
+    .sidebar-content__items {
+      list-style: none;
+      padding: 0px;
+    }
+
+    .sidebar-content__item {
+      line-height: 48px;
+      padding: 8px;
+      display: flex;
+      position: relative;
+      z-index: 0;
+      cursor: pointer;
+
+      &-icon {
+        font-size: 24px;
+      }
+
+      &--active {
+        border-right: 5px solid $primary-dark-color;
+
+        .sidebar-content__item-name {
+          color: $primary-dark-color;
+        }
+        .sidebar-content__item-icon {
+          color: $primary-dark-color;
+        }
+
+        .sidebar-content__item-box {
+          margin-left: 5px;
+        }
+      }
+
+      &:hover {
+        .sidebar-content__item-name {
+          color: $primary-dark-color;
+        }
+        .sidebar-content__item-icon {
+          color: $primary-dark-color;
+        }
+      }
+
+      &-box {
+        display: grid;
+        text-align: center;
+        width: 100%;
+      }
+
+      &-name {
+        margin: 8px 0px;
+      }
+    }
+  }
+
+  &--hidden {
+    display: none;
+    animation: fadeoutleft 0.15s linear;
+    @keyframes fadeoutleft {
+      0% {
+        opacity: 0;
+        transform: translateX(0%);
+        transition: transform 0.12s cubic-bezier(0, 0, 0.2, 1), opacity 0.12s cubic-bezier(0, 0, 0.2, 1);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  &--opening {
+    animation: fadeinleft 0.15s linear;
+
+    @keyframes fadeinleft {
+      0% {
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: transform 0.12s cubic-bezier(0, 0, 0.2, 1), opacity 0.12s cubic-bezier(0, 0, 0.2, 1);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0%);
+      }
+    }
+  }
+}

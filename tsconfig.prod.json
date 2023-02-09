@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "noUnusedLocals": true,
+    "skipLibCheck": true
+  },
+  "exclude": ["**/*.test.ts", "*.test.tsx"]
+}
